@@ -479,7 +479,6 @@ export default {
   font-size: 18px;
   line-height: 158.1%;
   border-radius: 50%;
-  border: none;
   outline: none;
   cursor: pointer;
 }

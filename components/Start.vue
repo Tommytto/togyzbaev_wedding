@@ -92,7 +92,6 @@ export default {
   background: #f5f5f5;
   border-radius: 4px;
   margin-right: 8px;
-  border: none;
   width: 80px;
   height: 80px;
   font-size: 40px;

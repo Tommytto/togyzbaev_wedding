@@ -16,8 +16,32 @@ html {
   box-sizing: border-box;
 }
 
-button {
+button,
+textarea {
   font-family: 'Cormorant', serif;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+input {
+  border: 1px solid transparent;
+  outline: none;
+}
+
+textarea:active,
+textarea:hover,
+textarea:focus,
+input:active,
+input:hover,
+input:focus {
+  border: 1px solid #e8e0da;
+}
+
+button:active,
+button:hover,
+button:focus {
+  background: #fbf9f8;
+  border: 1px solid #e8e0da;
 }
 
 *,
