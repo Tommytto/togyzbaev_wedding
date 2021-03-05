@@ -7,39 +7,13 @@
     <div class="start__help">Введи код, который ты получил</div>
     <div class="start__numbers">
       <input
-        ref="number1"
+        v-for="number in fields"
+        :key="number"
+        :ref="'number' + number"
         class="start__number"
         type="text"
         maxlength="1"
-        @input="handleChange(1)"
-      />
-      <input
-        ref="number2"
-        class="start__number"
-        type="text"
-        maxlength="1"
-        @input="handleChange(2)"
-      />
-      <input
-        ref="number3"
-        class="start__number"
-        type="text"
-        maxlength="1"
-        @input="handleChange(3)"
-      />
-      <input
-        ref="number4"
-        class="start__number"
-        type="text"
-        maxlength="1"
-        @input="handleChange(4)"
-      />
-      <input
-        ref="number5"
-        class="start__number"
-        type="text"
-        maxlength="1"
-        @input="handleChange(5)"
+        @input="handleChange(number)"
       />
     </div>
     <div class="start__error">
@@ -54,35 +28,33 @@ export default {
   data() {
     return {
       error: false,
+      fields: [1, 2, 3, 4, 5],
     }
   },
   methods: {
     getNumber() {
-      let value = ''
-      for (let i = 0; i < 5; i++) {
-        const number = this.$refs['number' + (i + 1)]
-        value += number.value
-      }
-
-      return value
+      return this.fields.map((num) => this.getField(num).value).join('')
     },
     handleChange(id) {
       this.error = false
       this.$emit('checkCode', this.getNumber())
-      const current = this.$refs['number' + id]
-      const next = this.$refs['number' + (id + 1)]
+      const current = this.getField(id)
+      const next = this.getField(id + 1)
       if (next && current && current.value) {
         next.focus()
         next.select()
       }
     },
+    getField(num) {
+      return this.$refs['number' + num] && this.$refs['number' + num][0]
+    },
     wrongCode() {
       this.error = true
-      for (let i = 0; i < 5; i++) {
-        const number = this.$refs['number' + (i + 1)]
-        number.value = ''
-      }
-      this.$refs.number1.focus()
+      this.fields.forEach((number) => {
+        const numberField = this.getField(number)
+        numberField.value = ''
+      })
+      this.getField(this.fields[0]).focus()
     },
   },
 }
