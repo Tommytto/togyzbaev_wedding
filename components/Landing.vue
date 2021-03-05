@@ -155,7 +155,7 @@
     </div>
     <div style="margin-top: 188px" class="landing__comment">
       <div class="landing__part-title"><b>давайте</b> <i>по секрету</i></div>
-      <div class="comment-small">
+      <div style="margin-top: 48px" class="comment-small">
         <span class="comment-big"> Расскажите, </span>
         есть ли у вас какая-то <br />
         аллергия/особые предпочтения <br />
@@ -172,6 +172,55 @@
         </div>
       </form>
     </div>
+    <div style="margin-top: 167px" class="landing__come">
+      <div class="landing__part-title"><b>нам</b> <i>важно знать</i></div>
+      <div style="margin-top: 32px" class="come-help">
+        Расскажите, придете вы или нет, пожалуйста!
+      </div>
+      <div style="width: 830px; margin-top: 48px" class="come-imp">
+        <span class="come-imp-big">И очень важно —</span> если вы придете +1 или
+        наоборот ваша вторая половинка по каким-то причинам не придет, скажите
+        нам сразу, максимально за месяц
+      </div>
+      <div class="come-button-container" style="max-width: 981px">
+        <div
+          :class="['come-button', come === 'yes' ? 'active' : '']"
+          @click="handleChangeCome('yes')"
+        >
+          Мы придем
+        </div>
+        <div
+          :class="['come-button', come === 'maybe' ? 'active' : '']"
+          @click="handleChangeCome('maybe')"
+        >
+          Надо подумать
+        </div>
+        <div
+          :class="['come-button', come === 'no' ? 'active' : '']"
+          @click="handleChangeCome('no')"
+        >
+          Спасибо, но нет
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 312px" class="landing__final flex">
+      <div>
+        <img src="~/assets/we3.svg" alt="we3" />
+      </div>
+      <div class="final-right" style="margin-left: 50px">
+        <div class="landing__part-title"><b>давайте</b> <i>подытожим</i></div>
+        <div class="final-place flex" style="margin-top: 74px">
+          <div>22 августа 2021</div>
+          <div style="margin-left: 85px">в 14:00</div>
+        </div>
+        <div class="final-place" style="margin-top: 44px">
+          г. Томск, Парк Отдыха «Раздолье»
+        </div>
+        <div class="final-final" style="margin-top: 148px">
+          Спасибо за внимание и до встречи, друзья!
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -187,10 +236,14 @@ export default {
   data() {
     return {
       comment: '',
+      come: this.guest.come || 'yes',
     }
   },
   methods: {
     handleSubmit() {},
+    handleChangeCome(come) {
+      this.come = come
+    },
   },
 }
 </script>
@@ -263,7 +316,7 @@ export default {
   margin-left: 25vw;
 }
 .landing__color {
-  margin-top: 86px;
+  margin-top: 248px;
 }
 .place-title {
   font-weight: 300;
@@ -302,6 +355,7 @@ export default {
 .landing__color-container {
   display: flex;
   margin-top: 80px;
+  flex-wrap: wrap;
 }
 .landing__color-item {
   display: flex;
@@ -428,5 +482,70 @@ export default {
   border: none;
   outline: none;
   cursor: pointer;
+}
+.come-help {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 158.1%;
+}
+.come-imp {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 38px;
+}
+
+.come-imp-big {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 158.1%;
+}
+.come-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 166px;
+}
+
+.come-button {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 48px;
+  position: relative;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+.come-button:hover,
+.come-button:active {
+  border-bottom: 1px solid black;
+}
+.come-button.active {
+  font-weight: bold;
+}
+.come-button.active::before {
+  content: url('~/assets/heart.svg');
+  position: absolute;
+  left: -37px;
+  top: 3px;
+}
+
+.final-place {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
+}
+
+.final-final {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 158.1%;
+}
+.final-right {
+  text-align: left;
 }
 </style>

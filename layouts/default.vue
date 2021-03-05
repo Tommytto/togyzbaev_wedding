@@ -16,6 +16,10 @@ html {
   box-sizing: border-box;
 }
 
+button {
+  font-family: 'Cormorant', serif;
+}
+
 *,
 *::before,
 *::after {
