@@ -42,12 +42,20 @@
         @input="handleChange(5)"
       />
     </div>
+    <div class="start__error">
+      <span v-if="error"> Неправильный код, попробуйте еще раз </span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Start',
+  data() {
+    return {
+      error: false,
+    }
+  },
   methods: {
     getNumber() {
       let value = ''
@@ -59,12 +67,22 @@ export default {
       return value
     },
     handleChange(id) {
-      console.log('here')
+      this.error = false
       this.$emit('checkCode', this.getNumber())
+      const current = this.$refs['number' + id]
       const next = this.$refs['number' + (id + 1)]
-      if (next) {
+      if (next && current && current.value) {
         next.focus()
+        next.select()
       }
+    },
+    wrongCode() {
+      this.error = true
+      for (let i = 0; i < 5; i++) {
+        const number = this.$refs['number' + (i + 1)]
+        number.value = ''
+      }
+      this.$refs.number1.focus()
     },
   },
 }
@@ -111,5 +129,12 @@ export default {
 
 .start__number:last-child {
   margin-right: 0;
+}
+
+.start__error {
+  color: red;
+  height: 15px;
+  font-size: 20px;
+  margin-top: 8px;
 }
 </style>

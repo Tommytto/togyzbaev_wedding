@@ -1,27 +1,36 @@
 <template>
   <main class="container">
-    <slot v-if="!guestInfo" name="start" @checkCode="checkSubmit" />
-    <slot v-else name="loggedIn" />
+    <start v-if="!guest" ref="start" @checkCode="checkCode" />
+    <landing v-else :guest="guest" />
   </main>
 </template>
 
 <script>
+import Start from './Start'
+import Landing from './Landing'
 export default {
   name: 'CodeChecker',
+  components: { Landing, Start },
   data() {
     return {
-      guestInfo: null,
+      guest: null,
     }
   },
+
   methods: {
-    async checkSubmit(code) {
-      console.log(code)
+    async checkCode(code) {
       if (code.length === 5) {
-        const result = await this.$axios.$get(
-          'http://23.111.202.11:3000/codes/' + code
-        )
-        console.log(result)
-        this.name = result.title
+        try {
+          this.guest = await this.$axios.$get(
+            'http://23.111.202.11:3000/codes/' + code
+          )
+
+          if (!this.guest) {
+            this.$refs.start.wrongCode()
+          }
+        } catch (e) {
+          console.log(e)
+        }
       }
     },
   },
