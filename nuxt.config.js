@@ -36,7 +36,7 @@ export default {
       {
         hid: 'og:image',
         name: 'og:image',
-        content: 'Главная вечеринка 2021 года',
+        content: '/preview.jpg',
       },
     ],
     link: [
