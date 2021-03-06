@@ -95,7 +95,8 @@ export default {
   width: 80px;
   height: 80px;
   font-size: 40px;
-  padding: 28px;
+  padding: 21px;
+  text-align: center;
 }
 
 .start__number:hover,
