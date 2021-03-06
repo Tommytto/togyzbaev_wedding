@@ -236,13 +236,16 @@ export default {
   data() {
     return {
       comment: '',
-      come: this.guest.come || 'yes',
+      come: this.guest.come || 'maybe',
     }
   },
   methods: {
     handleSubmit() {},
     handleChangeCome(come) {
       this.come = come
+      this.$axios.post(`https://api.togyzbaev.com/come/${this.guest.code}`, {
+        come,
+      })
     },
   },
 }
@@ -482,6 +485,14 @@ export default {
   outline: none;
   cursor: pointer;
 }
+
+.comment-send:active,
+.comment-send:hover,
+.comment-send:focus {
+  background: #fbf9f8;
+  border: 1px solid #e8e0da;
+}
+
 .come-help {
   font-style: italic;
   font-weight: normal;
@@ -515,6 +526,7 @@ export default {
   position: relative;
   padding-bottom: 2px;
   cursor: pointer;
+  border-bottom: 1px solid transparent;
 }
 
 .come-button:hover,

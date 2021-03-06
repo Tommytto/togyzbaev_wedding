@@ -37,7 +37,7 @@ export default {
       }
     },
     getGuest(code) {
-      return this.$axios.$get('http://23.111.202.11:3000/codes/' + code)
+      return this.$axios.$get('https://api.togyzbaev.com/codes/' + code)
     },
     saveCode(code) {
       localStorage.setItem('code', code)

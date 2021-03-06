@@ -98,6 +98,12 @@ export default {
   padding: 28px;
 }
 
+.start__number:hover,
+.start__number:active,
+.start__number:focus {
+  border: 1px solid #c7c7c7;
+}
+
 .start__number:last-child {
   margin-right: 0;
 }

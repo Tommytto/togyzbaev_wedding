@@ -11,7 +11,7 @@ export default {
   components: { CodeChecker },
 }
 </script>
-<style scoped>
+<style>
 .mobile {
   display: none;
 
@@ -23,13 +23,13 @@ export default {
   font-weight: bold;
   text-align: center;
 }
-@media (max-width: 767px) {
+@media (max-width: 860px) {
   .mobile {
     display: flex;
   }
 
   .desktop {
-    display: none;
+    display: none !important;
   }
 }
 </style>

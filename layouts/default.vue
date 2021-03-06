@@ -30,17 +30,7 @@ input {
 
 textarea:active,
 textarea:hover,
-textarea:focus,
-input:active,
-input:hover,
-input:focus {
-  border: 1px solid #e8e0da;
-}
-
-button:active,
-button:hover,
-button:focus {
-  background: #fbf9f8;
+textarea:focus {
   border: 1px solid #e8e0da;
 }
 
