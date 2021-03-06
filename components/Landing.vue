@@ -34,13 +34,13 @@
           </div>
           <div style="margin-left: 127px">
             <div class="place-title">Время?</div>
-            <div class="place-content">14:00</div>
+            <div class="place-content">15:30</div>
           </div>
         </div>
         <div style="margin-top: 48px">
           <div class="place-title">Где?</div>
           <div class="place-content">
-            г. Томск, Парк отдыха «Раздолье», с.Богашево, ул.Новостройка,45Н
+            г. Томск, Парк отдыха «Раздолье», с.Богашево, ул.Новостройка, 45Н
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div><b>Под звездочкой</b></div>
       <div style="margin-top: 32px" class="flex">
         <div style="width: 362px">
-          До места празднования будет организован трансфер из Томска
+          До места празднования будет организован трансфер из&nbsp;Томска
         </div>
         <div style="width: 341px; margin-left: 75px">
           После, все иногородние гости остаются ночевать там же
@@ -221,10 +221,10 @@
         <div class="landing__part-title"><b>давайте</b> <i>подытожим</i></div>
         <div class="final-place flex" style="margin-top: 74px">
           <div>22 августа 2021</div>
-          <div style="margin-left: 85px">в 14:00</div>
+          <div style="margin-left: 85px">в 15:30</div>
         </div>
         <div class="final-place" style="margin-top: 44px">
-          г. Томск, Парк отдыха «Раздолье», с.Богашево, ул.Новостройка,45Н
+          г. Томск, Парк отдыха «Раздолье», с.Богашево, ул.Новостройка, 45Н
         </div>
         <div class="final-final" style="margin-top: 148px">
           Спасибо за внимание и до встречи, друзья!
