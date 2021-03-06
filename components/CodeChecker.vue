@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       guest: null,
-      checked: false,
+      checked: true,
     }
   },
   mounted() {
@@ -28,9 +28,9 @@ export default {
 
           if (!this.guest) {
             this.$refs.start.wrongCode()
-          } else {
+          } /* else {
             this.saveCode(code)
-          }
+          } */
         } catch (e) {
           console.log(e)
         }
@@ -45,22 +45,25 @@ export default {
     removeCode() {
       localStorage.removeItem('code')
     },
-    async checkCodeLocal() {
+    checkCodeLocal() {
       const code = localStorage.getItem('code')
-      try {
-        if (code) {
-          const result = await this.getGuest(code)
-          if (!result) {
-            this.removeCode()
-          } else {
-            this.guest = result
-          }
-        }
-      } catch (e) {
+      if (code) {
         this.removeCode()
-      } finally {
-        this.checked = true
       }
+      // try {
+      //   if (code) {
+      //     const result = await this.getGuest(code)
+      //     if (!result) {
+      //       this.removeCode()
+      //     } else {
+      //       this.guest = result
+      //     }
+      //   }
+      // } catch (e) {
+      //   this.removeCode()
+      // } finally {
+      //   this.checked = true
+      // }
     },
   },
 }
