@@ -164,9 +164,19 @@
       <form style="margin-top: 56px" @submit.prevent="handleSubmit">
         <textarea
           v-model="comment"
-          placeholder="Поле, для ваших мыслей"
+          placeholder="Поле, для ваших мыслей (новый комментарий стирает предыдущий)"
           class="comment-field"
         />
+        <div
+          style="
+            height: 40px;
+            margin-top: 8px;
+            margin-bottom: -20px;
+            font-size: 20px;
+          "
+        >
+          <span v-if="commentSent"> Комментарий отправлен!</span>
+        </div>
         <div style="margin-top: 56px">
           <button class="comment-send">Отправить</button>
         </div>
@@ -214,10 +224,13 @@
           <div style="margin-left: 85px">в 14:00</div>
         </div>
         <div class="final-place" style="margin-top: 44px">
-          г. Томск, Парк Отдыха «Раздолье»
+          г. Томск, Парк отдыха «Раздолье», с.Богашево, ул.Новостройка,45Н
         </div>
         <div class="final-final" style="margin-top: 148px">
           Спасибо за внимание и до встречи, друзья!
+        </div>
+        <div class="final-final" style="margin-top: 20px; margin-bottom: 100px">
+          Не передавайте эту ссылку третьим лицам, это только для вас!
         </div>
       </div>
     </div>
@@ -237,10 +250,20 @@ export default {
     return {
       comment: '',
       come: this.guest.come || 'maybe',
+      commentSent: false,
     }
   },
   methods: {
-    handleSubmit() {},
+    async handleSubmit() {
+      this.commentSent = false
+      await this.$axios.post(
+        `https://api.togyzbaev.com/comments/${this.guest.code}`,
+        {
+          comment: this.comment,
+        }
+      )
+      this.commentSent = true
+    },
     handleChangeCome(come) {
       this.come = come
       this.$axios.post(`https://api.togyzbaev.com/come/${this.guest.code}`, {
@@ -252,6 +275,9 @@ export default {
 </script>
 
 <style scoped>
+.landing__final {
+  align-items: flex-end;
+}
 .flex {
   display: flex;
 }

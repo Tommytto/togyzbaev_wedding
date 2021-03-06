@@ -4,11 +4,40 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Тогызбаевы',
+    title: 'WeddingTogShow',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Главная вечеринка 2021 года',
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'description',
+        content: 'Главная вечеринка 2021 года',
+      },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        content: 'WeddingTogShow',
+      },
+      {
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: 'WeddingTogShow',
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: 'Главная вечеринка 2021 года',
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: 'Главная вечеринка 2021 года',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
